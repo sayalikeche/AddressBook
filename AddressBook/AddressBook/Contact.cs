@@ -6,13 +6,16 @@ namespace AddressBookSystem
 {
     class StartContact // This Model Class is Only Responisible for Changing Purpose
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string Zip { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
+        internal class Contact
+        {
+            public string FirstName { get; internal set; }
+            public string LastName { get; internal set; }
+            public string Address { get; internal set; }
+            public string City { get; internal set; }
+            public string State { get; internal set; }
+            public string Zip { get; internal set; }
+            public string PhoneNumber { get; internal set; }
+            public string Email { get; internal set; }
+        }
     }
 }
