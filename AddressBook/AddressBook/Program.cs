@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AddressBookSystem;
+using System;
+using static AddressBookSystem.StartContact;
 
-namespace AddressBookSystem
+namespace AddressBook
 {
     class Program
     {
-        Contact contact = new Contact();
+        readonly Contact contact = new Contact();
         static void Main(string[] args)
         {
             bool flag = true;
@@ -59,7 +61,7 @@ namespace AddressBookSystem
                     case 5:
                         Console.WriteLine("Enter the Contact Information to be Add in form of FirstName, LastName, Addr, City, State, Zip, Ph.No, Email.");
                         Console.WriteLine("Enter the Contact to be Add: ");
-                        Contact con = new Contact();
+                        StartContact.Contact con = new Contact();
                         AddressBook abo = new AddressBook();
                         abo.AddContact(con);
                         con.FirstName = Console.ReadLine();

@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static AddressBookSystem.StartContact;
 
-namespace AddressBookSystem
+namespace AddressBook
 {
     class AddressBook
     {
         List<Contact> addressList = new List<Contact>();
         Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();
-        public void AddContact(Contact contact) // This Method Will Add the Details of Customer
+        public void AddContact(Contact contact) 
         {
             addressList.Add(contact);
         }
-        public void Display() // This Method wii Display the Details
+        public void Display() 
         {
             foreach (var contact in addressList)
             {
@@ -37,7 +38,7 @@ namespace AddressBookSystem
             }
         }
 
-        public void DeleteContact(string user) // This Method Will Delete Particular Contact Detail Provided by User
+        public void DeleteContact(string user) 
         {
             Contact delete = new Contact();
             foreach (var contact in addressList)
@@ -48,7 +49,7 @@ namespace AddressBookSystem
                 }
             }
         }
-        public void AddUniqueContact(string nam)
+        public void AddUniqueContact(string nam) 
         {
             foreach (var contact in addressList)
             {
@@ -59,9 +60,8 @@ namespace AddressBookSystem
                 }
             }
         }
-        public void DisplayUniqueContacts()
+        public void DisplayUniqueContacts() 
         {
-            // Maintain Dictionary of Addressbook Name to Addressbook
             Console.WriteLine("enter name of dictionary to display that contact details");
             string name = Console.ReadLine().ToLower();
             foreach (var contacts in dict)
@@ -76,6 +76,22 @@ namespace AddressBookSystem
             }
             Console.WriteLine("Oops UniqueContacts does not exist!! Please create a UniquecontactList");
             return;
+        }
+
+        public void CheckDuplicateEntry(List<Contact> contacts, Contact contactBook) 
+        {
+            foreach (var Details in contacts)
+            {
+                var person = contacts.Find(e => e.FirstName.Equals(contactBook.FirstName));
+                if (person != null)
+                {
+                    Console.WriteLine("This Contact Already Exists Withe Same First Name: " + contactBook.FirstName);
+                }
+                else
+                {
+                    Console.WriteLine("Continue with Other");
+                }
+            }
         }
     }
 }
