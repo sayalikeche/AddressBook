@@ -78,7 +78,7 @@ namespace AddressBook
             return;
         }
 
-        public void CheckDuplicateEntry(List<Contact> contacts, Contact contactBook) 
+        public void DuplicateEntry(List<Contact> contacts, Contact contactBook) 
         {
             foreach (var Details in contacts)
             {
@@ -89,7 +89,7 @@ namespace AddressBook
                 }
                 else
                 {
-                    Console.WriteLine("Continue with Other");
+                    Console.WriteLine("Continue");
                 }
             }
         }
