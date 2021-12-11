@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace AddressBookSystem
+namespace AddressBook
 {
-    class StartContact // This Model Class is Only Responisible for Changing Purpose
+    public class Contact
     {
-        internal class Contact
-        {
-            public string FirstName { get; internal set; }
-            public string LastName { get; internal set; }
-            public string Address { get; internal set; }
-            public string City { get; internal set; }
-            public string State { get; internal set; }
-            public string Zip { get; internal set; }
-            public string PhoneNumber { get; internal set; }
-            public string Email { get; internal set; }
-        }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public string address { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string zip { get; set; }
+        public string phonenumber { get; set; }
+        public string emailid { get; set; }
     }
 }

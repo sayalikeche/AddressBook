@@ -1,92 +1,94 @@
-﻿using AddressBookSystem;
-using System;
-using static AddressBookSystem.StartContact;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace AddressBook
 {
     class Program
     {
-        readonly Contact contact = new Contact();
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Address Book Program");
+            AddressBook newaddressbook = new AddressBook();
+            Contact newcontact = new Contact();
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Enter your Choice Number to Execute the Address Program Press- 1-Contacts, 2-Add Contact, 3-Edit Contact, 4-Delete Contact, 5-Add Multiple Contact, 6-Refactor Method");
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice)
+                Console.WriteLine("Enter Number to Execute the Address book Program \n1. Create contacts \n2. Add contact \n3. Edit contact \n4. Delete contact \n5. Add contact \n6. Add multiple Address Book with unique name \n7. Check For Duplicate \n8. Search person by city or state \n9. View person by city or state \n9. Exit");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
                 {
                     case 1:
-                        Console.WriteLine("Enter the Contact Information in Format of FirstName, LastName, Addr, City, State, Zip, Ph.No, Email.");
-                        Contact newContact = new Contact();
-                        newContact.FirstName = Console.ReadLine();
-                        newContact.LastName = Console.ReadLine();
-                        newContact.Address = Console.ReadLine();
-                        newContact.City = Console.ReadLine();
-                        newContact.State = Console.ReadLine();
-                        newContact.Zip = Console.ReadLine();
-                        newContact.PhoneNumber = Console.ReadLine();
-                        newContact.Email = Console.ReadLine();
+                        Console.WriteLine("Enter the Contact Information first name, last names, address,city, state, zip, phone number and email id");
+                        newcontact.firstname = Console.ReadLine();
+                        newcontact.lastname = Console.ReadLine();
+                        newcontact.address = Console.ReadLine();
+                        newcontact.city = Console.ReadLine();
+                        newcontact.state = Console.ReadLine();
+                        newcontact.zip = Console.ReadLine();
+                        newcontact.phonenumber = Console.ReadLine();
+                        newcontact.emailid = Console.ReadLine();
                         break;
                     case 2:
-                        Console.WriteLine("Enter the Contact Information to be Add in form of FirstName, LastName, Addr, City, State, Zip, Ph.No, Email.");
-                        Console.WriteLine("Enter the Contact to be Add: ");
-                        Contact contact = new Contact();
-                        AddressBook addressBook = new AddressBook();
-                        addressBook.AddContact(contact);
-                        contact.FirstName = Console.ReadLine();
-                        contact.LastName = Console.ReadLine();
-                        contact.Address = Console.ReadLine();
-                        contact.City = Console.ReadLine();
-                        contact.State = Console.ReadLine();
-                        contact.Zip = Console.ReadLine();
-                        contact.PhoneNumber = Console.ReadLine();
-                        contact.Email = Console.ReadLine();
-                        addressBook.Display();
+                        Console.WriteLine("Enter the Contact Information first name, last names, address,city, state, zip, phone number and email id");
+                        newcontact.firstname = Console.ReadLine();
+                        newcontact.lastname = Console.ReadLine();
+                        newcontact.address = Console.ReadLine();
+                        newcontact.city = Console.ReadLine();
+                        newcontact.state = Console.ReadLine();
+                        newcontact.zip = Console.ReadLine();
+                        newcontact.phonenumber = Console.ReadLine();
+                        newcontact.emailid = Console.ReadLine();
+                        newaddressbook.AddContact(newcontact);
+                        newaddressbook.Display();
                         break;
                     case 3:
-                        Console.WriteLine("Enter the Contact Name to be Edited: ");
-                        string name = Console.ReadLine();
-                        AddressBook ab = new AddressBook();
-                        ab.EditContact(name);
-                        ab.Display();
+                        newaddressbook.Editexistingcontact();
+                        newaddressbook.Display();
                         break;
                     case 4:
-                        Console.WriteLine("Enter the Contact Name to be Deleted: ");
-                        string user = Console.ReadLine();
-                        AddressBook abb = new AddressBook();
-                        abb.DeleteContact(user);
-                        abb.Display();
+                        newaddressbook.Deletecontact();
+                        newaddressbook.Display();
                         break;
                     case 5:
-                        Console.WriteLine("Enter the Contact Information to be Add in form of FirstName, LastName, Addr, City, State, Zip, Ph.No, Email.");
-                        Console.WriteLine("Enter the Contact to be Add: ");
-                        StartContact.Contact con = new Contact();
-                        AddressBook abo = new AddressBook();
-                        abo.AddContact(con);
-                        con.FirstName = Console.ReadLine();
-                        con.LastName = Console.ReadLine();
-                        con.Address = Console.ReadLine();
-                        con.City = Console.ReadLine();
-                        con.State = Console.ReadLine();
-                        con.Zip = Console.ReadLine();
-                        con.PhoneNumber = Console.ReadLine();
-                        con.Email = Console.ReadLine();
-                        abo.Display();
+                        Console.WriteLine("Enter the Contact Information first name, last names, address,city, state, zip, phone number and email id");
+                        newcontact.firstname = Console.ReadLine();
+                        newcontact.lastname = Console.ReadLine();
+                        newcontact.address = Console.ReadLine();
+                        newcontact.city = Console.ReadLine();
+                        newcontact.state = Console.ReadLine();
+                        newcontact.zip = Console.ReadLine();
+                        newcontact.phonenumber = Console.ReadLine();
+                        newcontact.emailid = Console.ReadLine();
+                        newaddressbook.AddContact(newcontact);
+                        newaddressbook.Display();
                         break;
                     case 6:
                         Console.WriteLine("Enter the Unique Contact to be added: ");
-                        string nam = Console.ReadLine();
-                        AddressBook aboo = new AddressBook();
-                        aboo.AddUniqueContact(nam);
-                        aboo.DisplayUniqueContacts();
+                        string name = Console.ReadLine();
+                        newaddressbook.AddUniqueContact(name);
+                        newaddressbook.DisplayUniqueContacts();
                         break;
                     case 7:
+                        Console.WriteLine("Enter the Unique Contact to be added: ");
+                        string duplicatename = Console.ReadLine();
+                        newaddressbook.AddUniqueContact(duplicatename);
+                        newaddressbook.DisplayUniqueContacts();
+                        break;
+                    case 8:
+                        newaddressbook.Search_person_city_state();
+                        break;
+                    case 9:
+                        newaddressbook.view_person_city_state();
+                        break;
+                    case 10:
                         flag = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice");
                         break;
                 }
             }
-
         }
     }
 }
